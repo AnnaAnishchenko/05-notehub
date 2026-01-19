@@ -1,5 +1,5 @@
 import css from "./NoteForm.module.css";
-import React from "react";
+// import React from "react";
 import * as Yup from "yup";
 // import type { Note } from "../../types/note";
 import { ErrorMessage, Field, Formik, type FormikHelpers } from "formik";

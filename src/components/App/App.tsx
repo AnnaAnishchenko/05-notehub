@@ -1,5 +1,6 @@
 import css from "./App.module.css";
-import React, { useState } from "react";
+import { useState } from "react";
+// import React from "react";
 // import type { Note } from "../../types/note";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
