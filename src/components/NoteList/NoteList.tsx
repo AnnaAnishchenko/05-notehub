@@ -14,7 +14,7 @@ const NoteList = ({ notes }: NoteListProps) => {
     mutationFn: deleteNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
-      alert("Note deleted successfully");
+      
     },
   });
 
@@ -28,7 +28,7 @@ const NoteList = ({ notes }: NoteListProps) => {
             <span className={css.tag}> {note.tag} </span>
             <button
               className={css.button}
-             onClick={()=>mutation.mutate(note.id)}
+             onClick={()=>mutation.mutate(Number(note.id))}
             >
               Delete
             </button>
