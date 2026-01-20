@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-import fetchNotes  from "../../services/noteService";
+import { fetchNotes } from "../../services/noteService";
 import SearchBox from "../SearchBox/SearchBox";
 import Pagination from "../Pagination/Pagination";
 import { useDebounce } from "use-debounce";
@@ -29,18 +29,16 @@ function App() {
   };
 
   const notes = data?.notes ?? [];
-  const totalPages = data?.totalCount ? Math.ceil(data.totalCount / 10) : 0;
+  const totalPages = data?.totalPages ? Math.ceil(data.totalPages / 10) : 0;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isCreateNote, setIsCreateNote] = useState(false);
+  
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const toggleCreate = () => {
-    setIsCreateNote(!isCreateNote);
-  };
+
 
   return (
     <div className={css.app}>
@@ -56,7 +54,7 @@ function App() {
         <button
           onClick={() => {
             toggleModal();
-            toggleCreate();
+            
           }}
           className={css.button}
         >
@@ -68,10 +66,7 @@ function App() {
       </header>
 
  {isModalOpen &&  <Modal onClose={toggleModal}>
-  {isCreateNote && <NoteForm onClose={() => {
-                toggleModal();
-                toggleCreate();
-              }} /> }
+   <NoteForm onClose = { () =>  toggleModal() } /> 
    </Modal>}
 
 

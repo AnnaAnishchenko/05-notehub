@@ -8,10 +8,10 @@ axios.defaults.headers.common.Authorization = `Bearer ${
 
 interface FetchNotesResponse {
   notes: Note[];
-  totalCount: number;
+  totalPages: number;
 }
 
-const fetchNotes = async (
+export const fetchNotes = async (
   searchText: string,
   page: number
 ): Promise<FetchNotesResponse> => {
@@ -25,12 +25,9 @@ const fetchNotes = async (
 
   return {
     notes: response.data.notes,
-    totalCount: response.data.totalCount,
+    totalPages: response.data.totalPages,
   };
 };
-
-
-export default fetchNotes;
 
 interface NewNote {
   title: string;
