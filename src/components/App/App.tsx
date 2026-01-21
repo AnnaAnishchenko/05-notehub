@@ -29,7 +29,7 @@ function App() {
   };
 
   const notes = data?.notes ?? [];
-  const totalPages = data?.totalPages ? Math.ceil(data.totalPages / 10) : 0;
+  const totalPages = data?.totalPages ?? 1;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   

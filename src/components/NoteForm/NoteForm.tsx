@@ -2,7 +2,7 @@ import css from "./NoteForm.module.css";
 
 import * as Yup from "yup";
 
-import { ErrorMessage, Field, Formik, type FormikHelpers } from "formik";
+import { ErrorMessage, Field, Formik, Form, type FormikHelpers } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNote } from "../../services/noteService";
 
@@ -57,7 +57,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
       onSubmit={handleSubmit}
       validationSchema={PostSchema}
     >
-      <form className={css.form}>
+      <Form className={css.form}>
         <div className={css.formGroup}>
           <label htmlFor="title">Title</label>
            <Field id="title" type="text" name="title" className={css.input} />
@@ -101,7 +101,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
             Create note
           </button>
         </div>
-      </form>
+      </Form>
     </Formik>
   );
 }

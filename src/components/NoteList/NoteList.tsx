@@ -28,7 +28,7 @@ const NoteList = ({ notes }: NoteListProps) => {
             <span className={css.tag}> {note.tag} </span>
             <button
               className={css.button}
-             onClick={()=>mutation.mutate(Number(note.id))}
+             onClick={()=>mutation.mutate(note.id)}
             >
               Delete
             </button>
